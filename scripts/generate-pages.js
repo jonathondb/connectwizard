@@ -81,6 +81,8 @@ function pageHtml(combo) {
 <meta property="og:url" content="${SITE}/connect/${combo.slug}" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4387452115275226" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T2QWM3ZSE4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T2QWM3ZSE4');</script>
 <script type="application/ld+json">${buildSchema(combo)}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
