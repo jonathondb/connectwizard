@@ -400,6 +400,74 @@ function ConnectionResult({ result }) {
   );
 }
 
+// ─── REQUEST A GUIDE PROMPT ──────────────────────────────────────────────────
+function RequestGuide({ deviceA, deviceB }) {
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const submit = async () => {
+    setSending(true);
+    try {
+      await fetch("/api/log-demand", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "request", deviceA, deviceB, email: email.trim() }),
+      });
+      setSent(true);
+    } catch {
+      setSent(true); // treat as done either way — non-critical
+    }
+    setSending(false);
+  };
+
+  if (sent) {
+    return (
+      <div style={{ background: "rgba(0,212,255,.06)", border: "1px solid rgba(0,212,255,.25)",
+        borderRadius: "14px", padding: "20px", marginTop: "20px", textAlign: "center" }}>
+        <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#00D4FF", fontSize: "15px" }}>
+          ✓ Thanks! We've logged your request.
+        </p>
+        <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#888", fontSize: "13px", marginTop: "6px" }}>
+          Popular requests get turned into full step-by-step guides.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ background: "rgba(255,255,255,.03)", border: "1px solid rgba(255,255,255,.08)",
+      borderRadius: "14px", padding: "22px", marginTop: "20px" }}>
+      <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#fff", fontSize: "15px", marginBottom: "6px" }}>
+        Want this as a permanent, detailed guide?
+      </p>
+      <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#888", fontSize: "13px", marginBottom: "14px" }}>
+        Request a full {deviceA} → {deviceB} guide. Add your email and we'll notify you when it's live (optional).
+      </p>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@email.com (optional)"
+          style={{ flex: "1 1 200px", background: "rgba(255,255,255,.05)",
+            border: "1.5px solid rgba(255,255,255,.15)", borderRadius: "10px",
+            padding: "12px 16px", color: "#fff", fontFamily: "'Syne',sans-serif", fontSize: "14px", outline: "none" }}
+        />
+        <button
+          onClick={submit}
+          disabled={sending}
+          style={{ background: "linear-gradient(135deg,#00D4FF,#7B2FFF)", border: "none",
+            borderRadius: "10px", color: "#fff", fontFamily: "'Syne',sans-serif", fontWeight: "800",
+            fontSize: "14px", padding: "12px 22px", cursor: sending ? "default" : "pointer",
+            opacity: sending ? 0.6 : 1, whiteSpace: "nowrap" }}>
+          {sending ? "Sending…" : "Request Guide"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ─── MAIN APP ────────────────────────────────────────────────────────────────
 export default function App() {
   const [deviceA, setDeviceA]         = useState("");
@@ -443,6 +511,12 @@ export default function App() {
       const parsed = await res.json();
       if (parsed.error) throw new Error(parsed.error);
       setResult(parsed);
+      // Silently log this combo as a demand signal (fire-and-forget)
+      fetch("/api/log-demand", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "search", deviceA, deviceB }),
+      }).catch(() => {});
     } catch {
       setError("Something went wrong generating the guide. Please try again.");
     } finally {
@@ -661,9 +735,12 @@ export default function App() {
           <ConnectionResult result={result} />
 
           {result && (
-            <div style={{ marginTop: "32px" }}>
-              <AdSlot slot={ADSENSE_SLOT_MID} format="rectangle" />
-            </div>
+            <>
+              <RequestGuide deviceA={result.deviceA} deviceB={result.deviceB} />
+              <div style={{ marginTop: "32px" }}>
+                <AdSlot slot={ADSENSE_SLOT_MID} format="rectangle" />
+              </div>
+            </>
           )}
         </div>
 
