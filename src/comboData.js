@@ -44,7 +44,7 @@ export const combos = [
     deviceA: "PS5", deviceB: "Soundbar",
     title: "How to Connect a PS5 to a Soundbar (HDMI ARC & Optical)",
     metaDescription: "Get the best audio from your PS5 with a soundbar. Step-by-step setup for HDMI ARC and optical connections, plus the cables you need.",
-    intro: "The best way to connect a PS5 to a soundbar is through your TV using HDMI ARC, which passes audio from the PS5 to the soundbar with full quality and a single cable. If your TV or soundbar lacks HDMI ARC, an optical cable is a reliable fallback.",
+    intro: "To connect a PS5 to a soundbar, route it through your TV using HDMI ARC, which passes audio from the PS5 to the soundbar with full quality over a single cable. If your TV or soundbar lacks HDMI ARC, an optical cable is a reliable fallback.",
     methods: [
       { name: "HDMI ARC (via TV)", type: "wired", steps: ["Connect the PS5 to any TV HDMI port with an HDMI 2.1 cable.","Connect the soundbar to the TV's HDMI port labeled 'ARC' or 'eARC'.","In TV settings, enable HDMI-CEC and ARC audio output.","On the PS5, go to Settings → Sound → Audio Output and confirm HDMI output."], parts: [{ name: "HDMI 2.1 Cable", searchQuery: "HDMI 2.1 cable 8K 120Hz PS5" },{ name: "HDMI Cable (ARC)", searchQuery: "HDMI cable ARC soundbar" }] },
       { name: "Optical Cable", type: "wired", steps: ["Connect the PS5 to the TV via HDMI.","Run an optical (Toslink) cable from the TV's optical out to the soundbar.","Set the TV audio output to optical/external speaker."], parts: [{ name: "Optical Audio Cable", searchQuery: "optical audio cable Toslink" }] },
