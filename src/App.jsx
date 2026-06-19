@@ -574,6 +574,17 @@ export default function App() {
         }
         .gen-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,.45);}
         .gen-btn:disabled{opacity:.4;cursor:not-allowed;}
+        .search-grid{
+          display:grid;grid-template-columns:1fr auto 1fr;
+          gap:14px;align-items:center;margin-bottom:22px;
+        }
+        .swap-icon{margin-top:19px;}
+        @media (max-width: 640px){
+          .search-grid{grid-template-columns:1fr;gap:10px;}
+          .swap-icon{margin-top:0;transform:rotate(90deg);justify-self:center;}
+          .search-grid label{margin-top:6px;}
+          .gen-btn{width:100%;white-space:normal;}
+        }
         .chip{
           background:#FFFFFF;border:1px solid rgba(26,35,50,.12);
           border-radius:100px;padding:7px 15px;color:#777;
@@ -663,10 +674,7 @@ export default function App() {
           borderRadius: "24px", padding: "30px",
           backdropFilter: "blur(10px)", animation: "fadeUp .7s ease",
         }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "1fr auto 1fr",
-            gap: "14px", alignItems: "center", marginBottom: "22px",
-          }}>
+          <div className="search-grid">
             <div>
               <label style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px",
                 color: "#64748B", letterSpacing: ".1em", textTransform: "uppercase",
@@ -675,11 +683,11 @@ export default function App() {
                 placeholder="e.g. MacBook, iPhone, PS5…" excludeValue={deviceB} />
             </div>
 
-            <div style={{ display: "flex", alignItems: "center",
-              justifyContent: "center", marginTop: "19px" }}>
+            <div className="swap-icon" style={{ display: "flex", alignItems: "center",
+              justifyContent: "center" }}>
               <div style={{
                 width: "40px", height: "40px",
-                background: "rgba(0,212,255,.1)", border: "1px solid rgba(124,58,237,.35)",
+                background: "rgba(37,99,235,.1)", border: "1px solid rgba(124,58,237,.35)",
                 borderRadius: "50%", display: "flex", alignItems: "center",
                 justifyContent: "center", color: "#2563EB", fontSize: "17px",
                 fontWeight: "700", flexShrink: 0,
