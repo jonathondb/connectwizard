@@ -11,11 +11,14 @@ const DIST = path.resolve("dist");
 
 // HowTo + FAQ schema for rich results and AI citation
 function buildSchema(combo) {
+  const today = new Date().toISOString().split("T")[0];
   const howTo = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: combo.title,
     description: combo.metaDescription,
+    datePublished: today,
+    dateModified: today,
     step: combo.methods.flatMap((m) =>
       m.steps.map((s, i) => ({
         "@type": "HowToStep",
@@ -61,6 +64,7 @@ function faqHtml(combo) {
 }
 
 function pageHtml(combo) {
+  const prettyDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   const related = combos
     .filter((c) => c.slug !== combo.slug)
     .slice(0, 4)
@@ -93,6 +97,7 @@ nav a{color:#1A2332;text-decoration:none;font-weight:800;font-size:18px}
 nav .accent{color:#2563EB}
 h1{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.15;margin-bottom:20px;color:#1A2332}
 .intro{font-size:18px;color:#334155;background:rgba(37,99,235,.06);border-left:3px solid #2563EB;padding:18px 22px;border-radius:8px;margin-bottom:36px}
+.pubdate{font-size:13px;color:#94A3B8;margin-bottom:20px;font-family:-apple-system,sans-serif}
 h2{font-size:24px;margin:36px 0 16px;color:#1A2332}
 h3{font-size:18px;margin-bottom:12px;color:#1A2332}
 .method{background:#FFFFFF;border:1px solid rgba(26,35,50,.10);border-radius:14px;padding:24px;margin-bottom:18px}
@@ -122,6 +127,7 @@ footer a{color:#94A3B8}
 <div class="wrap">
 <nav><a href="/" style="display:inline-flex;align-items:center;gap:10px;"><img src="/logo.png" alt="ConnectWizard" width="36" height="36" style="border-radius:50%;vertical-align:middle"/><span>Connect<span class="accent">Wizard</span></span></a></nav>
 <h1>${combo.title}</h1>
+<p class="pubdate">Updated ${prettyDate} · ConnectWizard</p>
 <p class="intro">${combo.intro}</p>
 
 <h2>Connection Methods</h2>
