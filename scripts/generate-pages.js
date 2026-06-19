@@ -86,41 +86,41 @@ function pageHtml(combo) {
 <script type="application/ld+json">${buildSchema(combo)}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#070C14;color:#e8eaed;line-height:1.65;padding:0 20px 80px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F7F9FC;color:#1A2332;line-height:1.65;padding:0 20px 80px}
 .wrap{max-width:760px;margin:0 auto}
 nav{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:40px}
-nav a{color:#fff;text-decoration:none;font-weight:800;font-size:18px}
-nav .accent{color:#00D4FF}
-h1{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.15;margin-bottom:20px;color:#fff}
-.intro{font-size:18px;color:#c5c8cc;background:rgba(0,212,255,.06);border-left:3px solid #00D4FF;padding:18px 22px;border-radius:8px;margin-bottom:36px}
-h2{font-size:24px;margin:36px 0 16px;color:#fff}
-h3{font-size:18px;margin-bottom:12px;color:#fff}
-.method{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;margin-bottom:18px}
+nav a{color:#1A2332;text-decoration:none;font-weight:800;font-size:18px}
+nav .accent{color:#2563EB}
+h1{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.15;margin-bottom:20px;color:#1A2332}
+.intro{font-size:18px;color:#334155;background:rgba(37,99,235,.06);border-left:3px solid #2563EB;padding:18px 22px;border-radius:8px;margin-bottom:36px}
+h2{font-size:24px;margin:36px 0 16px;color:#1A2332}
+h3{font-size:18px;margin-bottom:12px;color:#1A2332}
+.method{background:#FFFFFF;border:1px solid rgba(26,35,50,.10);border-radius:14px;padding:24px;margin-bottom:18px}
 .badge{font-size:12px;padding:3px 10px;border-radius:100px;margin-left:8px;vertical-align:middle}
-.badge.wireless{background:rgba(123,47,255,.2);color:#b794f6}
-.badge.wired{background:rgba(255,107,53,.2);color:#ff9f6b}
-ol{margin-left:20px;color:#c5c8cc}
+.badge.wireless{background:rgba(124,58,237,.12);color:#7C3AED}
+.badge.wired{background:rgba(234,88,12,.12);color:#EA580C}
+ol{margin-left:20px;color:#334155}
 ol li{margin-bottom:8px}
 .parts{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
 .parts h4{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#FFB347;margin-bottom:10px}
 .part{display:inline-block;background:linear-gradient(135deg,#FF9900,#FFB347);color:#000;font-weight:700;font-size:14px;padding:9px 16px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0}
 .faq{margin-bottom:20px}
-.faq h3{color:#00D4FF;font-size:16px}
-.faq p{color:#c5c8cc}
-.tips{background:rgba(123,47,255,.08);border:1px solid rgba(123,47,255,.2);border-radius:12px;padding:20px;margin:28px 0}
+.faq h3{color:#2563EB;font-size:16px}
+.faq p{color:#334155}
+.tips{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.18);border-radius:12px;padding:20px;margin:28px 0}
 .tips h2{margin-top:0}
-.tips ul{margin-left:20px;color:#c5c8cc}
+.tips ul{margin-left:20px;color:#334155}
 .tips li{margin-bottom:8px}
-.cta{display:block;text-align:center;background:linear-gradient(135deg,#00D4FF,#7B2FFF);color:#fff;font-weight:800;padding:16px;border-radius:12px;text-decoration:none;margin:36px 0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;font-weight:800;padding:16px;border-radius:12px;text-decoration:none;margin:36px 0}
 .related{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)}
-.related a{display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#9aa0a6;padding:8px 16px;border-radius:100px;text-decoration:none;margin:0 8px 8px 0;font-size:14px}
-footer{margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);color:#5f6368;font-size:12px;text-align:center}
-footer a{color:#5f6368}
+.related a{display:inline-block;background:#FFFFFF;border:1px solid rgba(26,35,50,.12);color:#475569;padding:8px 16px;border-radius:100px;text-decoration:none;margin:0 8px 8px 0;font-size:14px}
+footer{margin-top:50px;padding-top:24px;border-top:1px solid rgba(26,35,50,.10);color:#94A3B8;font-size:12px;text-align:center}
+footer a{color:#94A3B8}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav><a href="/">Connect<span class="accent">Wizard</span></a></nav>
+<nav><a href="/" style="display:inline-flex;align-items:center;gap:10px;"><img src="/logo.png" alt="ConnectWizard" width="36" height="36" style="border-radius:50%;vertical-align:middle"/><span>Connect<span class="accent">Wizard</span></span></a></nav>
 <h1>${combo.title}</h1>
 <p class="intro">${combo.intro}</p>
 
