@@ -91,26 +91,26 @@ function DeviceComboBox({ value, onChange, placeholder, excludeValue }) {
         onBlur={() => setTimeout(() => setOpen(false), 160)}
         placeholder={placeholder}
         style={{
-          width: "100%", background: "rgba(255,255,255,.05)",
-          border: "1.5px solid rgba(255,255,255,.15)", borderRadius: "12px",
-          padding: "15px 18px", color: "#fff", fontFamily: "'Syne',sans-serif",
+          width: "100%", background: "#F0F3F8",
+          border: "1.5px solid rgba(26,35,50,.15)", borderRadius: "12px",
+          padding: "15px 18px", color: "#1A2332", fontFamily: "'Syne',sans-serif",
           fontSize: "15px", outline: "none", boxSizing: "border-box",
           transition: "border-color .2s",
         }}
-        onFocus={e => { e.target.style.borderColor="#00D4FF"; setOpen(true); }}
+        onFocus={e => { e.target.style.borderColor="#2563EB"; setOpen(true); }}
         onBlur={e => { e.target.style.borderColor="rgba(255,255,255,.15)"; }}
       />
       {open && filtered.length > 0 && (
         <div style={{
           position: "absolute", top: "calc(100% + 6px)", left: 0, right: 0,
-          background: "#0F1923", border: "1.5px solid rgba(0,212,255,.3)",
+          background: "#FFFFFF", border: "1.5px solid rgba(124,58,237,.35)",
           borderRadius: "12px", maxHeight: "200px", overflowY: "auto", zIndex: 200,
           boxShadow: "0 12px 40px rgba(0,0,0,.6)",
         }}>
           {filtered.map(d => (
             <div key={d}
               onMouseDown={() => { onChange(d); setSearch(""); setOpen(false); }}
-              style={{ padding: "11px 18px", cursor: "pointer", color: "#bbb",
+              style={{ padding: "11px 18px", cursor: "pointer", color: "#4A5568",
                 fontFamily: "'Syne',sans-serif", fontSize: "14px",
                 transition: "background .1s, color .1s" }}
               onMouseEnter={e=>{e.currentTarget.style.background="rgba(0,212,255,.1)";e.currentTarget.style.color="#fff";}}
@@ -134,10 +134,10 @@ function EmailModal({ onSuccess }) {
   const isValid = name.trim().length > 1 && isValidEmail;
 
   const inputStyle = (hasError) => ({
-    width: "100%", background: "rgba(255,255,255,.05)",
+    width: "100%", background: "#F0F3F8",
     border: `1.5px solid ${hasError ? "#ff6b6b" : "rgba(255,255,255,.15)"}`,
     borderRadius: "12px", padding: "15px 18px",
-    color: "#fff", fontFamily: "'Syne',sans-serif", fontSize: "15px",
+    color: "#1A2332", fontFamily: "'Syne',sans-serif", fontSize: "15px",
     outline: "none", boxSizing: "border-box",
   });
 
@@ -169,14 +169,14 @@ function EmailModal({ onSuccess }) {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 999,
-      background: "rgba(7,12,20,.88)",
+      background: "rgba(20,30,48,.45)",
       backdropFilter: "blur(8px)",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: "20px",
     }}>
       <div style={{
-        background: "#0F1923",
-        border: "1px solid rgba(0,212,255,.3)",
+        background: "#FFFFFF",
+        border: "1px solid rgba(124,58,237,.35)",
         borderRadius: "24px", padding: "40px 36px",
         maxWidth: "440px", width: "100%",
         animation: "fadeUp .35s ease",
@@ -185,7 +185,7 @@ function EmailModal({ onSuccess }) {
         {/* Icon */}
         <div style={{
           width: "56px", height: "56px", borderRadius: "16px",
-          background: "linear-gradient(135deg,#00D4FF,#7B2FFF)",
+          background: "linear-gradient(135deg,#2563EB,#7C3AED)",
           display: "flex", alignItems: "center", justifyContent: "center",
           marginBottom: "24px",
         }}>
@@ -196,7 +196,7 @@ function EmailModal({ onSuccess }) {
 
         <h2 style={{
           fontFamily: "'Syne',sans-serif", fontWeight: "800", fontSize: "24px",
-          color: "#fff", marginBottom: "10px", lineHeight: 1.2,
+          color: "#1A2332", marginBottom: "10px", lineHeight: 1.2,
         }}>
           Get Your Free Connection Guide
         </h2>
@@ -209,7 +209,7 @@ function EmailModal({ onSuccess }) {
 
         {/* Name input */}
         <label style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px",
-          color: "#555", letterSpacing: ".1em", textTransform: "uppercase",
+          color: "#64748B", letterSpacing: ".1em", textTransform: "uppercase",
           display: "block", marginBottom: "8px" }}>First Name</label>
         <input
           type="text"
@@ -219,13 +219,13 @@ function EmailModal({ onSuccess }) {
           placeholder="John"
           autoFocus
           style={{ ...inputStyle(error && !name.trim()), marginBottom: "14px" }}
-          onFocus={e => e.target.style.borderColor="#00D4FF"}
+          onFocus={e => e.target.style.borderColor="#2563EB"}
           onBlur={e => e.target.style.borderColor="rgba(255,255,255,.15)"}
         />
 
         {/* Email input */}
         <label style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px",
-          color: "#555", letterSpacing: ".1em", textTransform: "uppercase",
+          color: "#64748B", letterSpacing: ".1em", textTransform: "uppercase",
           display: "block", marginBottom: "8px" }}>Email Address</label>
         <input
           type="email"
@@ -234,7 +234,7 @@ function EmailModal({ onSuccess }) {
           onKeyDown={e => e.key === "Enter" && handleSubmit()}
           placeholder="you@email.com"
           style={{ ...inputStyle(error && !isValidEmail), marginBottom: "8px" }}
-          onFocus={e => e.target.style.borderColor="#00D4FF"}
+          onFocus={e => e.target.style.borderColor="#2563EB"}
           onBlur={e => e.target.style.borderColor="rgba(255,255,255,.15)"}
         />
 
@@ -248,13 +248,13 @@ function EmailModal({ onSuccess }) {
           onClick={handleSubmit}
           disabled={loading}
           style={{
-            width: "100%", background: "linear-gradient(135deg,#00D4FF,#7B2FFF)",
+            width: "100%", background: "linear-gradient(135deg,#2563EB,#7C3AED)",
             border: "none", borderRadius: "12px", color: "#fff",
             fontFamily: "'Syne',sans-serif", fontWeight: "800", fontSize: "15px",
             padding: "16px", cursor: loading ? "not-allowed" : "pointer",
             marginTop: "8px", letterSpacing: "0.04em",
             opacity: loading ? .7 : 1, transition: "opacity .2s, transform .15s",
-            boxShadow: "0 4px 24px rgba(0,212,255,.3)",
+            boxShadow: "0 4px 24px rgba(124,58,237,.35)",
           }}
           onMouseEnter={e=>{ if(!loading) e.currentTarget.style.transform="translateY(-1px)"; }}
           onMouseLeave={e=>{ e.currentTarget.style.transform="translateY(0)"; }}
@@ -264,7 +264,7 @@ function EmailModal({ onSuccess }) {
 
         <p style={{
           fontFamily: "'Space Grotesk',sans-serif", fontSize: "11px",
-          color: "#444", textAlign: "center", marginTop: "16px", lineHeight: 1.5,
+          color: "#94A3B8", textAlign: "center", marginTop: "16px", lineHeight: 1.5,
         }}>
           🔒 No spam, ever. Unsubscribe anytime.<br/>
           By continuing you agree to our Privacy Policy.
@@ -279,7 +279,7 @@ function ConnectionResult({ result }) {
   if (!result) return null;
   return (
     <div style={{
-      background: "rgba(255,255,255,.03)",
+      background: "#FFFFFF",
       border: "1px solid rgba(0,212,255,.2)",
       borderRadius: "20px", padding: "32px", marginTop: "32px",
       animation: "fadeUp .4s ease",
@@ -287,33 +287,33 @@ function ConnectionResult({ result }) {
       <div style={{ marginBottom: "24px" }}>
         <div style={{
           display: "inline-flex", alignItems: "center", gap: "8px",
-          background: "rgba(0,212,255,.1)", border: "1px solid rgba(0,212,255,.3)",
+          background: "rgba(0,212,255,.1)", border: "1px solid rgba(124,58,237,.35)",
           borderRadius: "100px", padding: "6px 16px", marginBottom: "14px",
         }}>
           <div style={{ width: "8px", height: "8px", borderRadius: "50%",
-            background: "#00D4FF", animation: "pulse 2s infinite" }} />
+            background: "#2563EB", animation: "pulse 2s infinite" }} />
           <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "11px",
-            color: "#00D4FF", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            color: "#2563EB", letterSpacing: "0.1em", textTransform: "uppercase" }}>
             Connection Guide
           </span>
         </div>
         <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "20px",
-          fontWeight: "800", color: "#fff", margin: 0 }}>
+          fontWeight: "800", color: "#1A2332", margin: 0 }}>
           {result.deviceA} ↔ {result.deviceB}
         </h2>
       </div>
 
       {result.methods?.map((method, i) => (
         <div key={i} style={{
-          background: "rgba(255,255,255,.03)",
-          border: "1px solid rgba(255,255,255,.07)",
+          background: "#FFFFFF",
+          border: "1px solid rgba(26,35,50,.10)",
           borderRadius: "16px", padding: "22px", marginBottom: "14px",
         }}>
           {/* Method header */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
             <div style={{
               background: method.type === "wireless"
-                ? "linear-gradient(135deg,#7B2FFF,#00D4FF)"
+                ? "linear-gradient(135deg,#7C3AED,#2563EB)"
                 : "linear-gradient(135deg,#FF6B35,#FFB347)",
               borderRadius: "10px", padding: "8px",
               display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
@@ -325,10 +325,10 @@ function ConnectionResult({ result }) {
             </div>
             <div>
               <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700",
-                color: "#fff", fontSize: "15px" }}>{method.name}</div>
+                color: "#1A2332", fontSize: "15px" }}>{method.name}</div>
               <div style={{ fontSize: "11px", textTransform: "uppercase",
                 letterSpacing: "0.08em",
-                color: method.type === "wireless" ? "#7B2FFF" : "#FF6B35" }}>
+                color: method.type === "wireless" ? "#7C3AED" : "#FF6B35" }}>
                 {method.type === "wireless" ? "⚡ Wireless" : "🔌 Wired"}
               </div>
             </div>
@@ -339,14 +339,14 @@ function ConnectionResult({ result }) {
             <div key={si} style={{ display: "flex", gap: "12px",
               marginBottom: "10px", alignItems: "flex-start" }}>
               <div style={{
-                background: "rgba(0,212,255,.15)", color: "#00D4FF",
+                background: "rgba(0,212,255,.15)", color: "#2563EB",
                 borderRadius: "8px", width: "26px", height: "26px",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontFamily: "'Syne',sans-serif", fontWeight: "800",
                 fontSize: "12px", flexShrink: 0, marginTop: "2px",
               }}>{si + 1}</div>
               <p style={{ fontFamily: "'Space Grotesk',sans-serif",
-                fontSize: "14px", color: "#bbb", margin: 0, lineHeight: 1.6 }}>{step}</p>
+                fontSize: "14px", color: "#4A5568", margin: 0, lineHeight: 1.6 }}>{step}</p>
             </div>
           ))}
 
@@ -367,7 +367,7 @@ function ConnectionResult({ result }) {
                   justifyContent: "space-between", flexWrap: "wrap",
                   gap: "8px", marginBottom: pi < method.parts.length - 1 ? "10px" : "0" }}>
                   <span style={{ fontFamily: "'Space Grotesk',sans-serif",
-                    fontSize: "14px", color: "#ccc" }}>{part.name}</span>
+                    fontSize: "14px", color: "#475569" }}>{part.name}</span>
                   <AmazonButton query={part.searchQuery} label={part.name} />
                 </div>
               ))}
@@ -390,7 +390,7 @@ function ConnectionResult({ result }) {
           </div>
           {result.tips.map((tip, i) => (
             <p key={i} style={{ fontFamily: "'Space Grotesk',sans-serif",
-              fontSize: "13px", color: "#999",
+              fontSize: "13px", color: "#64748B",
               margin: i < result.tips.length - 1 ? "0 0 6px" : "0",
               lineHeight: 1.5 }}>• {tip}</p>
           ))}
@@ -425,10 +425,10 @@ function RequestGuide({ deviceA, deviceB }) {
     return (
       <div style={{ background: "rgba(0,212,255,.06)", border: "1px solid rgba(0,212,255,.25)",
         borderRadius: "14px", padding: "20px", marginTop: "20px", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#00D4FF", fontSize: "15px" }}>
+        <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#2563EB", fontSize: "15px" }}>
           ✓ Thanks! We've logged your request.
         </p>
-        <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#888", fontSize: "13px", marginTop: "6px" }}>
+        <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#64748B", fontSize: "13px", marginTop: "6px" }}>
           Popular requests get turned into full step-by-step guides.
         </p>
       </div>
@@ -436,12 +436,12 @@ function RequestGuide({ deviceA, deviceB }) {
   }
 
   return (
-    <div style={{ background: "rgba(255,255,255,.03)", border: "1px solid rgba(255,255,255,.08)",
+    <div style={{ background: "#FFFFFF", border: "1px solid rgba(26,35,50,.10)",
       borderRadius: "14px", padding: "22px", marginTop: "20px" }}>
-      <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#fff", fontSize: "15px", marginBottom: "6px" }}>
+      <p style={{ fontFamily: "'Syne',sans-serif", fontWeight: "700", color: "#1A2332", fontSize: "15px", marginBottom: "6px" }}>
         Want this as a permanent, detailed guide?
       </p>
-      <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#888", fontSize: "13px", marginBottom: "14px" }}>
+      <p style={{ fontFamily: "'Space Grotesk',sans-serif", color: "#64748B", fontSize: "13px", marginBottom: "14px" }}>
         Request a full {deviceA} → {deviceB} guide. Add your email and we'll notify you when it's live (optional).
       </p>
       <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
@@ -450,14 +450,14 @@ function RequestGuide({ deviceA, deviceB }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com (optional)"
-          style={{ flex: "1 1 200px", background: "rgba(255,255,255,.05)",
-            border: "1.5px solid rgba(255,255,255,.15)", borderRadius: "10px",
-            padding: "12px 16px", color: "#fff", fontFamily: "'Syne',sans-serif", fontSize: "14px", outline: "none" }}
+          style={{ flex: "1 1 200px", background: "#F0F3F8",
+            border: "1.5px solid rgba(26,35,50,.15)", borderRadius: "10px",
+            padding: "12px 16px", color: "#1A2332", fontFamily: "'Syne',sans-serif", fontSize: "14px", outline: "none" }}
         />
         <button
           onClick={submit}
           disabled={sending}
-          style={{ background: "linear-gradient(135deg,#00D4FF,#7B2FFF)", border: "none",
+          style={{ background: "linear-gradient(135deg,#2563EB,#7C3AED)", border: "none",
             borderRadius: "10px", color: "#fff", fontFamily: "'Syne',sans-serif", fontWeight: "800",
             fontSize: "14px", padding: "12px 22px", cursor: sending ? "default" : "pointer",
             opacity: sending ? 0.6 : 1, whiteSpace: "nowrap" }}>
@@ -548,39 +548,39 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
-        body{background:#070C14;min-height:100vh;font-family:'Space Grotesk',sans-serif;}
+        body{background:#F7F9FC;min-height:100vh;font-family:'Space Grotesk',sans-serif;}
         ::-webkit-scrollbar{width:5px;}
-        ::-webkit-scrollbar-track{background:#070C14;}
-        ::-webkit-scrollbar-thumb{background:rgba(0,212,255,.3);border-radius:3px;}
+        ::-webkit-scrollbar-track{background:#F7F9FC;}
+        ::-webkit-scrollbar-thumb{background:rgba(124,58,237,.35);border-radius:3px;}
         @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
         @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
         .grid-bg{
           position:fixed;inset:0;pointer-events:none;
-          background-image:linear-gradient(rgba(0,212,255,.035) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(0,212,255,.035) 1px,transparent 1px);
+          background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),
+            linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);
           background-size:42px 42px;
         }
         .orb1{position:fixed;top:-180px;right:-80px;width:560px;height:560px;
-          background:radial-gradient(circle,rgba(123,47,255,.14) 0%,transparent 70%);pointer-events:none;}
+          background:radial-gradient(circle,rgba(124,58,237,.10) 0%,transparent 70%);pointer-events:none;}
         .orb2{position:fixed;bottom:-180px;left:-80px;width:480px;height:480px;
-          background:radial-gradient(circle,rgba(0,212,255,.09) 0%,transparent 70%);pointer-events:none;}
+          background:radial-gradient(circle,rgba(37,99,235,.08) 0%,transparent 70%);pointer-events:none;}
         .gen-btn{
-          background:linear-gradient(135deg,#00D4FF,#7B2FFF);border:none;border-radius:12px;
+          background:linear-gradient(135deg,#2563EB,#7C3AED);border:none;border-radius:12px;
           color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;
           padding:15px 32px;cursor:pointer;letter-spacing:.04em;
-          box-shadow:0 4px 24px rgba(0,212,255,.3);transition:transform .2s,box-shadow .2s,opacity .2s;
+          box-shadow:0 4px 24px rgba(124,58,237,.35);transition:transform .2s,box-shadow .2s,opacity .2s;
           white-space:nowrap;
         }
         .gen-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,.45);}
         .gen-btn:disabled{opacity:.4;cursor:not-allowed;}
         .chip{
-          background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+          background:#FFFFFF;border:1px solid rgba(26,35,50,.12);
           border-radius:100px;padding:7px 15px;color:#777;
           font-family:'Space Grotesk',sans-serif;font-size:12px;cursor:pointer;
           transition:all .2s;
         }
-        .chip:hover{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.3);color:#00D4FF;}
+        .chip:hover{background:rgba(0,212,255,.08);border-color:rgba(124,58,237,.35);color:#2563EB;}
       `}</style>
 
       {/* Background */}
@@ -595,29 +595,22 @@ export default function App() {
         <nav style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: "22px 0", maxWidth: "880px", margin: "0 auto",
-          borderBottom: "1px solid rgba(255,255,255,.06)", marginBottom: "60px",
+          borderBottom: "1px solid rgba(26,35,50,.08)", marginBottom: "60px",
         }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <div style={{
-              width: "34px", height: "34px",
-              background: "linear-gradient(135deg,#00D4FF,#7B2FFF)",
-              borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="white">
-                <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5C3.89 3 3 3.9 3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
-              </svg>
-            </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <img src="/logo.png" alt="ConnectWizard logo" width="40" height="40"
+              style={{ borderRadius: "50%", display: "block" }} />
             <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: "800",
-              fontSize: "17px", color: "#fff", letterSpacing: "-.02em" }}>
-              Connect<span style={{ color: "#00D4FF" }}>Wizard</span>
+              fontSize: "18px", color: "#1A2332", letterSpacing: "-.02em" }}>
+              Connect<span style={{ color: "#2563EB" }}>Wizard</span>
             </span>
           </div>
           {userEmail && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <div style={{ width: "8px", height: "8px", borderRadius: "50%",
-                background: "#00D4FF", animation: "pulse 2s infinite" }} />
+                background: "#2563EB", animation: "pulse 2s infinite" }} />
               <span style={{ fontFamily: "'Space Grotesk',sans-serif",
-                fontSize: "12px", color: "#555" }}>
+                fontSize: "12px", color: "#64748B" }}>
                 {userName ? `Hey, ${userName} 👋` : userEmail}
               </span>
             </div>
@@ -639,7 +632,7 @@ export default function App() {
           }}>
             <span style={{ fontSize: "13px" }}>⚡</span>
             <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "11px",
-              color: "#00D4FF", letterSpacing: ".1em", textTransform: "uppercase" }}>
+              color: "#2563EB", letterSpacing: ".1em", textTransform: "uppercase" }}>
               AI-Powered Device Guide
             </span>
           </div>
@@ -647,17 +640,17 @@ export default function App() {
           <h1 style={{
             fontFamily: "'Syne',sans-serif",
             fontSize: "clamp(38px,7vw,68px)", fontWeight: "800",
-            color: "#fff", lineHeight: 1.06, letterSpacing: "-.03em", marginBottom: "18px",
+            color: "#1A2332", lineHeight: 1.06, letterSpacing: "-.03em", marginBottom: "18px",
           }}>
             Connect Any<br />
-            <span style={{ background: "linear-gradient(135deg,#00D4FF,#7B2FFF)",
+            <span style={{ background: "linear-gradient(135deg,#2563EB,#7C3AED)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Two Devices
             </span>
           </h1>
 
           <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: "17px",
-            color: "#555", lineHeight: 1.65, maxWidth: "440px", margin: "0 auto" }}>
+            color: "#64748B", lineHeight: 1.65, maxWidth: "440px", margin: "0 auto" }}>
             Pick two devices. Get step-by-step instructions for every connection method — wired and wireless — plus the exact parts you need.
           </p>
         </div>
@@ -665,8 +658,8 @@ export default function App() {
         {/* ── SEARCH BOX ── */}
         <div style={{
           maxWidth: "880px", margin: "0 auto",
-          background: "rgba(255,255,255,.03)",
-          border: "1px solid rgba(255,255,255,.08)",
+          background: "#FFFFFF",
+          border: "1px solid rgba(26,35,50,.10)",
           borderRadius: "24px", padding: "30px",
           backdropFilter: "blur(10px)", animation: "fadeUp .7s ease",
         }}>
@@ -676,7 +669,7 @@ export default function App() {
           }}>
             <div>
               <label style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px",
-                color: "#555", letterSpacing: ".1em", textTransform: "uppercase",
+                color: "#64748B", letterSpacing: ".1em", textTransform: "uppercase",
                 display: "block", marginBottom: "9px" }}>Device One</label>
               <DeviceComboBox value={deviceA} onChange={setDeviceA}
                 placeholder="e.g. MacBook, iPhone, PS5…" excludeValue={deviceB} />
@@ -686,16 +679,16 @@ export default function App() {
               justifyContent: "center", marginTop: "19px" }}>
               <div style={{
                 width: "40px", height: "40px",
-                background: "rgba(0,212,255,.1)", border: "1px solid rgba(0,212,255,.3)",
+                background: "rgba(0,212,255,.1)", border: "1px solid rgba(124,58,237,.35)",
                 borderRadius: "50%", display: "flex", alignItems: "center",
-                justifyContent: "center", color: "#00D4FF", fontSize: "17px",
+                justifyContent: "center", color: "#2563EB", fontSize: "17px",
                 fontWeight: "700", flexShrink: 0,
               }}>↔</div>
             </div>
 
             <div>
               <label style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px",
-                color: "#555", letterSpacing: ".1em", textTransform: "uppercase",
+                color: "#64748B", letterSpacing: ".1em", textTransform: "uppercase",
                 display: "block", marginBottom: "9px" }}>Device Two</label>
               <DeviceComboBox value={deviceB} onChange={setDeviceB}
                 placeholder="e.g. Smart TV, Projector…" excludeValue={deviceA} />
@@ -776,7 +769,7 @@ export default function App() {
         {/* ── FOOTER ── */}
         <div style={{
           maxWidth: "880px", margin: "48px auto 0", textAlign: "center",
-          borderTop: "1px solid rgba(255,255,255,.05)", paddingTop: "28px",
+          borderTop: "1px solid rgba(26,35,50,.08)", paddingTop: "28px",
         }}>
           <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: "11px",
             color: "#2e2e2e", lineHeight: 1.7 }}>
