@@ -769,6 +769,83 @@ export default function App() {
           </div>
         )}
 
+        {/* ── HOMEPAGE CONTENT (for readers, SEO, and AdSense) ── */}
+        <div style={{ maxWidth: "760px", margin: "64px auto 0",
+          fontFamily: "'Space Grotesk',sans-serif", color: "#334155", lineHeight: 1.75 }}>
+          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "26px", fontWeight: "800",
+            color: "#1A2332", marginBottom: "16px" }}>
+            Connect any two devices, the easy way
+          </h2>
+          <p style={{ marginBottom: "16px" }}>
+            Few things are more frustrating than having two pieces of technology that simply won't talk to
+            each other. You know they <em>should</em> connect — you just can't find a straight answer on how.
+            Forums contradict each other, manuals are out of date, and cable names read like alphabet soup:
+            HDMI, USB-C, DisplayPort, optical, ARC. ConnectWizard cuts through all of it.
+          </p>
+          <p style={{ marginBottom: "16px" }}>
+            Enter the two devices you want to connect and you'll get clear, step-by-step instructions for every
+            realistic method — both wired and wireless — along with the exact cables or adapters you need to
+            make it work. Whether you're trying to connect a MacBook to a 4K monitor, get a PS5 working with a
+            soundbar, or pair Bluetooth headphones with a desktop PC that has no Bluetooth, the answer is here.
+          </p>
+
+          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "22px", fontWeight: "800",
+            color: "#1A2332", margin: "36px 0 16px" }}>
+            Popular connection guides
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
+            gap: "10px", marginBottom: "16px" }}>
+            {[
+              ["macbook-to-4k-monitor","MacBook → 4K Monitor"],
+              ["iphone-to-smart-tv","iPhone → Smart TV"],
+              ["ps5-to-soundbar","PS5 → Soundbar"],
+              ["laptop-to-projector","Laptop → Projector"],
+              ["bluetooth-headphones-to-pc","Bluetooth Headphones → PC"],
+              ["nintendo-switch-to-tv","Nintendo Switch → TV"],
+              ["tv-to-soundbar-hdmi-arc","TV → Soundbar (HDMI ARC)"],
+              ["xbox-series-x-to-tv","Xbox Series X → TV"],
+            ].map(([slug, label]) => (
+              <a key={slug} href={`/connect/${slug}`} style={{
+                display: "block", background: "#fff", border: "1px solid rgba(26,35,50,.10)",
+                borderRadius: "10px", padding: "12px 16px", textDecoration: "none",
+                color: "#2563EB", fontSize: "14px", fontWeight: "600" }}>
+                {label}
+              </a>
+            ))}
+          </div>
+
+          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "22px", fontWeight: "800",
+            color: "#1A2332", margin: "36px 0 16px" }}>
+            How it works
+          </h2>
+          <p style={{ marginBottom: "16px" }}>
+            ConnectWizard combines a hand-written library of the most common device-connection guides with an
+            AI-powered tool that can generate a custom guide for almost any pair of devices you enter. Each guide
+            breaks the connection down into simple steps, explains the difference between the available methods,
+            and recommends the specific type of cable or adapter that solves your problem — never the most
+            expensive option, just the one that works.
+          </p>
+
+          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "22px", fontWeight: "800",
+            color: "#1A2332", margin: "36px 0 16px" }}>
+            Frequently asked questions
+          </h2>
+          <div style={{ marginBottom: "8px" }}>
+            {[
+              ["Is ConnectWizard free to use?","Yes. Every guide and the connection tool are completely free. We earn through affiliate links and advertising, which lets us keep the site free and keep expanding the guide library."],
+              ["How do I know which cable or adapter to buy?","Each guide names the specific type of cable or adapter needed for that connection and links to options. We recommend based on what actually solves the problem, not on price."],
+              ["What if my exact devices aren't listed?","Use the generator at the top of the page — enter any two devices and it will create a custom step-by-step guide, even for combinations not yet in our written library."],
+              ["Do wireless connections work as well as wired?","It depends on the use case. Wireless (Bluetooth, AirPlay, Chromecast) is convenient for casual use, while wired connections (HDMI, USB-C) are more reliable and lag-free for gaming, video, and presentations. Each guide explains the trade-offs."],
+            ].map(([q, a], i) => (
+              <div key={i} style={{ marginBottom: "18px" }}>
+                <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: "16px", fontWeight: "700",
+                  color: "#2563EB", marginBottom: "6px" }}>{q}</h3>
+                <p style={{ margin: 0 }}>{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* ── BOTTOM AD ── */}
         <div style={{ maxWidth: "880px", margin: "56px auto 0" }}>
           <AdSlot slot={ADSENSE_SLOT_BOTTOM} format="auto" />
@@ -779,10 +856,14 @@ export default function App() {
           maxWidth: "880px", margin: "48px auto 0", textAlign: "center",
           borderTop: "1px solid rgba(26,35,50,.08)", paddingTop: "28px",
         }}>
-          <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: "11px",
-            color: "#2e2e2e", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: "13px",
+            color: "#64748B", lineHeight: 1.8 }}>
+            <a href="/about" style={{ color: "#64748B", margin: "0 8px", textDecoration: "none" }}>About</a> ·
+            <a href="/contact" style={{ color: "#64748B", margin: "0 8px", textDecoration: "none" }}>Contact</a> ·
+            <a href="/privacy" style={{ color: "#64748B", margin: "0 8px", textDecoration: "none" }}>Privacy Policy</a>
+            <br/>
             ConnectWizard.tech · As an Amazon Associate we earn from qualifying purchases.<br/>
-            <span style={{ color: "#252525" }}>© 2026 ConnectWizard · Privacy Policy · Terms</span>
+            <span style={{ color: "#94A3B8" }}>© 2026 ConnectWizard</span>
           </p>
         </div>
       </div>
